@@ -1,0 +1,18 @@
+From now on, Android rom can be easy to pack. You don't need to worry about the permissions of the files or the symlinks anymore.
+
+What does this package do:
+	1. Automatically find and recognize the img with patterned name in the same folder of this package.
+	2. Automatically wipe and flash the system partition when system.img is found.
+	3. Automatically flash the addon pack without wiping the system partition when addon.*.img is found.
+	4. Automatically backup efs and efs_gsm partition, on Samsung Duo sim card phones.
+	5. Be able to flash the unmountable partitions like boot, recovery, modem, etc.
+
+How to pack:
+	1. Make you rom on on the Phone or Linux. On the Phone? Yes, you can test your patches on your phone.
+	2. No matter on the Phone or on Linux, cd /system/ or cd <your system folder>, check the permissions and symlinks. Usually I don't check cause I modify directly on a system I dumped from my phone. Yes a dump of system partition is a good idea.
+	3. You have two optitions: 1. Use the modified dumped system partition dump as system.img. This usually generate a big img to flash, but will flash faster. 2. If you use extracted folder or want to use small files, cd to the system folder in shell and make the folder to a tarball with the command: 'tar --lzma -cf <your tar file> * .[!.]*'. Why use * .[!.]*? This will put the .* files and folders in the tarball.
+	4. Then rename the dumped image or the tarball to system.img and put it in the same folder of the FLASHER.
+	5. Want to make an addon? Just make the name like addon.<your name>.img. Don't for get the permissions and ownership of the files and folders.
+
+Future plan:
+	1. Make a packer/dumper for the system partition.
