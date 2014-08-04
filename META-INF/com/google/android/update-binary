@@ -64,11 +64,8 @@ ui_print 'Welcome to MaxFu Flasher for Galaxy S4 Duos...'
 ui_print 'Mounting cache...'
 mount /cache
 
-if [ ! -d $POS/backup ]; then
-  mkdir $POS/backup
-fi
-
 ui_print 'Backing up efs partitions to '$POS'/backup...'
+mkdir $POS/backup
 rm -rf /cache/$MARK
 mkdir /cache/$MARK
 mount /dev/block/mmcblk0p3 /cache/$MARK
